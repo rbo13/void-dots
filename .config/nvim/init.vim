@@ -134,7 +134,6 @@ set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
 
-
 " Use <Space> to search
 map <space> /
 
@@ -173,8 +172,13 @@ nnoremap k gk
 nnoremap <C-D> :bnext<CR>
 nnoremap <C-S> :bprev<CR>
 
-" End General settings
-
+" ============================
+"     ______          __
+"    / ____/___  ____/ /
+"   / __/ / __ \/ __  / 
+"  / /___/ / / / /_/ /  
+" /_____/_/ /_/\__,_/   
+" ============================
 
 " ---------------------------------------------------------
 let NERDTreeShowHidden=1
@@ -319,10 +323,6 @@ nnoremap <c-p> :FZF<cr>
 
 
 " End Map leader
-
-
-
-
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
