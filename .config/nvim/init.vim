@@ -12,7 +12,65 @@ endif
 set runtimepath^=~/.vim runtimepath+=~/.vim/after runtimepath+=/usr/local/opt/fzf
 let &packpath = &runtimepath
 
-" Neovim General settings
+" Load `vim-plug`
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tomtom/tcomment_vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'w0rp/ale'
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ap/vim-buftabline'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'ggreer/the_silver_searcher'
+Plug 'zivyangll/git-blame.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rust-lang/rust.vim'
+Plug 'sebdah/vim-delve'
+
+" Themes
+" Plug 'cormacrelf/vim-colors-github'
+Plug 'altercation/vim-colors-solarized'
+" End installation of plugins
+
+" Initialize plugin system
+call plug#end()
+" End Plugin Manager
+
+" ==============================================================================
+"    ______                           __   _____      __  __  _                 
+"   / ____/__  ____  ___  _________ _/ /  / ___/___  / /_/ /_(_)___  ____ ______
+"  / / __/ _ \/ __ \/ _ \/ ___/ __ `/ /   \__ \/ _ \/ __/ __/ / __ \/ __ `/ ___/
+" / /_/ /  __/ / / /  __/ /  / /_/ / /   ___/ /  __/ /_/ /_/ / / / / /_/ (__  ) 
+" \____/\___/_/ /_/\___/_/   \__,_/_/   /____/\___/\__/\__/_/_/ /_/\__, /____/  
+"                                                                /____/        
+" ==============================================================================
+
+" Optimal terminal color
+set termguicolors
+set t_Co=256
+
+" Load Theme
+set background=dark
+colorscheme solarized
+
+" Enable syntax
 syntax on
 
 if has("autocmd")
@@ -23,6 +81,7 @@ if has("autocmd")
 endif
 
 filetype on
+
 " Make Vim more useful
 set nocompatible
 
@@ -54,14 +113,15 @@ set incsearch                  " Highlight search pattern
 
 set listchars=tab:»·             " ┐
 set listchars+=trail:·           " │ Use custom symbols to
-" set listchars+=eol:↴           " │ represent invisible characters.
-" set listchars+=nbsp:_          " ┘
+set listchars+=eol:↴             " │ represent invisible characters.
+set listchars+=nbsp:_            " ┘
 
 " disable showmode, since we are using lightline
 set noshowmode
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
+set completeopt-=preview
 
 " Enhance command-line completion
 set wildmenu
@@ -262,55 +322,7 @@ nnoremap <c-p> :FZF<cr>
 
 
 
-" Load `vim-plug`
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-Plug 'tomtom/tcomment_vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'w0rp/ale'
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/syntastic'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ap/vim-buftabline'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'ggreer/the_silver_searcher'
-Plug 'zivyangll/git-blame.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'rust-lang/rust.vim'
-Plug 'sebdah/vim-delve'
-
-" Themes
-" Plug 'cormacrelf/vim-colors-github'
-Plug 'altercation/vim-colors-solarized'
-" End installation of plugins
-
-" Initialize plugin system
-call plug#end()
-
-" Optimal terminal color
-set termguicolors
-set t_Co=256
-
-" Load Theme
-" let g:github_colors_diff = 1
-" let g:github_colors_block_diffmark = 0
-set background=dark
-colorscheme solarized
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
