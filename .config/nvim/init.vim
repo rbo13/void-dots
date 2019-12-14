@@ -45,7 +45,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'sebdah/vim-delve'
 
 " Themes
-" Plug 'cormacrelf/vim-colors-github'
 Plug 'altercation/vim-colors-solarized'
 " End installation of plugins
 
