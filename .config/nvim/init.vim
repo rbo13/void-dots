@@ -45,7 +45,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'sebdah/vim-delve'
 
 " Themes
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'ajmwagar/vim-deus'
 " End installation of plugins
 
 " Initialize plugin system
