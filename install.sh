@@ -37,6 +37,7 @@ sudo xbps-install -Syuv \
 	tlp \
 	xf86-input-synaptics \
 	xf86-input-evdev \
+	xf86-video-intel \
 	alsa-utils \
 	wireless_tools \
 	ntfs-3g \
