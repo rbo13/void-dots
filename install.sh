@@ -61,7 +61,8 @@ sudo xbps-install -Syuv \
 	netpbm \
 	grep \
 	openssh \
-	screen
+	screen \
+  rsync
 
 
 
