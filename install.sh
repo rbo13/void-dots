@@ -62,7 +62,8 @@ sudo xbps-install -Syuv \
 	grep \
 	openssh \
 	screen \
-  rsync
+  rsync \
+  go
 
 
 
