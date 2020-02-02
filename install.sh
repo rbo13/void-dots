@@ -63,7 +63,8 @@ sudo xbps-install -Syuv \
 	openssh \
 	screen \
   rsync \
-  go
+  go \
+  rust
 
 
 
