@@ -65,7 +65,8 @@ sudo xbps-install -Syuv \
   rsync \
   go \
   rust \
-  aws-cli
+  aws-cli \
+  xrandr
 
 
 
