@@ -66,7 +66,12 @@ sudo xbps-install -Syuv \
   go \
   rust \
   aws-cli \
-  xrandr
+  xrandr \
+  bat \
+  hyperfine \
+  ytop \
+  procs \
+  fdfind
 
 
 
